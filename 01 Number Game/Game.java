@@ -58,8 +58,6 @@ public class Game {
 
                     for (int i = 0; i < size; i++) {
                         values[i] = Integer.parseInt(valueStrings[i]);
-
-                        //System.out.println("Test - values[" + i + "] = " + values[i]);
                     }
 
                     System.out.println("");
@@ -154,11 +152,9 @@ public class Game {
                     direction[j][(i+2)+j] = -1;
 
                     if (direction[j][(i+1)+j] == -1) { // follow "take last"
-                        // System.out.println("Test - Branch 1 -  iteration [" + i + "," + j + "] - adding " + path[j][i+j] + " and " + values[(i+2)+j]);
                         path[j][(i+2)+j] = path[j][i+j] + values[(i+2)+j];
                     }
                     else { // follow "take first"
-                        // System.out.println("Test - Branch 2 -  iteration [" + i + "," + j + "] - adding " + path[j+1][(i+1)+j] + " and " + values[(i+2)+j]);
                         path[j][(i+2)+j] = path[j+1][(i+1)+j] + values[(i+2)+j];
                     }
                 }
@@ -166,11 +162,9 @@ public class Game {
                     direction[j][(i+2)+j] = 1;
 
                     if (direction[j+1][(i+2)+j] == -1) { // follow "take last"
-                        // System.out.println("Test - Branch 3 -  iteration [" + i + "," + j + "] - adding " + path[j+1][(i+1)+j] + " and " + values[(i+2)+j]);
                         path[j][(i+2)+j] = path[j+1][(i+1)+j] + values[(i+2)+j];
                     }
                     else { // follow "take first"
-                        // System.out.println("Test - Branch 4 -  iteration [" + i + "," + j + "] - adding " + path[j+2][(i+2)+j] + " and " + values[j]);
                         path[j][(i+2)+j] = path[j+2][(i+2)+j] + values[j];
                     }
                 }
